@@ -66,9 +66,13 @@ manage_todo_list() {
             ;;
         3)
             nl todo.txt
-            read -p "Enter task number to remove: " task_no
-            sed -i "${task_no}d" todo.txt
-            echo "Task removed."
+	    read -p "Enter the line number to delete: " task_no
+	    if [[ "$task_no" =~ ^[0-9]+$ ]] && [ "$task_no" -gt 0 ]; then
+    		sed -i '' "${task_no}d" todo.txt
+    		echo "Task no $task_no has been deleted from todo.txt."
+	    else
+    		echo "Invalid input. Please enter a positive number."
+	    fi
             ;;
         *)
             echo "Invalid option."
