@@ -76,7 +76,7 @@ manage_todo_list() {
     esac
 }
 
-5_GitCommitAutomator:
+#5_GitCommitAutomator:
 
 automate_git_commit() {
     echo "Automating Git commit..."
